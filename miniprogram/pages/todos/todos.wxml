@@ -1,0 +1,13 @@
+<!--miniprogram/pages/todos/todos.wxml-->
+<view class="userinfo">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+    ></button>
+    <view class="todos-info-con"><text>已办</text><text class="todos-info-num finish">5</text></view>
+    <view class="todos-info-con"><text>待办</text><text class="todos-info-num todos">7</text></view>
+    <view class="todos-info-con"><text>过期</text><text class="todos-info-num undos">7</text></view>
+    <button class="add-todo" style="background-image: url('./img/add.png')"></button>
+</view>
