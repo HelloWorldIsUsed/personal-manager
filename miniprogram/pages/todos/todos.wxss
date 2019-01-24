@@ -33,11 +33,7 @@
 }
 
 .add-todo{
-  border-radius: 50%;
-  background-size: cover;
-  background-color: white;
-  width: 50rpx;
-  height: 50rpx;
+  font-size:60rpx;
 }
 
 .finish{
