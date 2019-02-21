@@ -59,6 +59,3 @@
 .todos-list{
 
 }
-.todos-item{
-  padding: 0 20rpx;
-}

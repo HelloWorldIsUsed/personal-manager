@@ -7,26 +7,69 @@
       class="userinfo-avatar"
       style="background-image: url({{avatarUrl}})"
     ></button>
-    <view class="todos-info-con"><text>已办</text><text class="todos-info-num finish">5</text></view>
-    <view class="todos-info-con"><text>待办</text><text class="todos-info-num todos">7</text></view>
+    <view class="todos-info-con"><text>待办</text><text class="todos-info-num todos">7</text></view>    
     <view class="todos-info-con"><text>过期</text><text class="todos-info-num undos">7</text></view>
+    <view class="todos-info-con"><text>已办</text><text class="todos-info-num finish">5</text></view>
   </view>
   <text class="iconfont icon-add add-todo"></text>
+</view>
+
+<view class="weui-tab">
+  <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+              <view class="weui-navbar__title">{{item}}</view>
+          </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+  </view>
+  <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <!--待办-->
+        <view class="weui-cells weui-cells_after-title">
+          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="weui-cell__bd">待办标题</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access">2019-02-21</view>
+          </navigator>
+          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="weui-cell__bd">待办标题</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access">2019-02-21</view>
+          </navigator>
+        </view>
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <!--待办-->
+        <view class="weui-cells weui-cells_after-title">
+          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="weui-cell__bd">过期标题</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access">2019-02-21</view>
+          </navigator>
+          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="weui-cell__bd">过期标题</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access">2019-02-21</view>
+          </navigator>
+        </view>
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+        <!--待办-->
+        <view class="weui-cells weui-cells_after-title">
+          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="weui-cell__bd">已办标题</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access">2019-02-21</view>
+          </navigator>
+          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="weui-cell__bd">已办标题</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access">2019-02-21</view>
+          </navigator>
+        </view>
+      </view>
+  </view>
 </view>
 
 <view class="todos-list-con">
   <view class="todos-list">
     <view class="todos-item">
-        <view class="weui-cells weui-cells_after-title">
-            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                <view class="weui-cell__bd">cell standard</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </navigator>
-            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                <view class="weui-cell__bd">cell standard</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </navigator>
-        </view>
+        
     </view>
   </view>
 </view>

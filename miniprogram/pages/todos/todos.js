@@ -8,12 +8,17 @@ Page({
     avatarUrl: './img/avatar.png',
     userInfo: {},
     logged: false,
+    tabs: ["待办", "过期", "已办"],
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var _this = this;
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -30,6 +35,15 @@ Page({
         }
       }
     })
+
+    wx.getSystemInfo({
+      success: function(res) {
+          _this.setData({
+              sliderLeft: (res.windowWidth / _this.data.tabs.length - sliderWidth) / 2,
+              sliderOffset: res.windowWidth / _this.data.tabs.length * _this.data.activeIndex
+          });
+      }
+    });
   },
 
   /**
@@ -89,5 +103,12 @@ Page({
         userInfo: e.detail.userInfo
       })
     }
+  },
+
+  tabClick: function (e) {
+    this.setData({
+        sliderOffset: e.currentTarget.offsetLeft,
+        activeIndex: e.currentTarget.id
+    });
   }
 })
