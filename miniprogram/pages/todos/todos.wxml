@@ -11,7 +11,7 @@
     <view class="todos-info-con"><text>过期</text><text class="todos-info-num undos">7</text></view>
     <view class="todos-info-con"><text>已办</text><text class="todos-info-num finish">5</text></view>
   </view>
-  <text class="iconfont icon-add add-todo"></text>
+  <text class="iconfont icon-add add-todo" bindtap="onAdd"></text>
 </view>
 
 <view class="weui-tab">

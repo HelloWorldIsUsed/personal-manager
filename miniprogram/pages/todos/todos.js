@@ -110,5 +110,11 @@ Page({
         sliderOffset: e.currentTarget.offsetLeft,
         activeIndex: e.currentTarget.id
     });
+  },
+
+  onAdd: function () {
+    wx.navigateTo({
+      url: '../add/add',
+    })
   }
 })
