@@ -1,4 +1,7 @@
 // miniprogram/pages/todos/todos.js
+var time = require('./../../utils/formatDate')
+var sliderWidth = 96;
+
 Page({
 
   /**
@@ -7,11 +10,24 @@ Page({
   data: {
     avatarUrl: './img/avatar.png',
     userInfo: {},
+    mainHeight: '840rpx',
     logged: false,
     tabs: ["待办", "过期", "已办"],
     activeIndex: 0,
     sliderOffset: 0,
-    sliderLeft: 0
+    sliderLeft: 0,
+    todosList: [
+      {
+        title:'1',
+        content:'1',
+        date: time.formatTime(new Date()),        
+      },
+      {
+        title:'1',
+        content:'1',
+        date:time.formatTime(new Date()),        
+      }
+    ]
   },
 
   /**
@@ -42,57 +58,38 @@ Page({
               sliderLeft: (res.windowWidth / _this.data.tabs.length - sliderWidth) / 2,
               sliderOffset: res.windowWidth / _this.data.tabs.length * _this.data.activeIndex
           });
+          /*
+          console.log(res.screenHeight);
+          wx.createSelectorQuery().select('.userinfo').boundingClientRect(function (rect) {
+            console.log(rect.height);
+            wx.createSelectorQuery().select('.weui-navbar').boundingClientRect(function (rect1) {
+              console.log(rect1.height);
+              _this.mainHeight = res.screenHeight - rect.height -rect1.height + 'px';
+              console.log(_this.mainHeight);
+            }).exec()
+          }).exec()
+          */
       }
     });
+
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'queryList',
+      success(res) {
+        res.result.forEach( item => item.date = time.formatTime(new Date(item.date)));
+        _this.setData({
+          todosList: res.result
+        })
+      },
+      fail: console.error
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    
   },
 
   onGetUserInfo: function (e) {

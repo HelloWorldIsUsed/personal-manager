@@ -3,15 +3,19 @@ const cloud = require('wx-server-sdk')
 
 cloud.init()
 
+const db = cloud.database()
+
 // 云函数入口函数
 exports.main = async (event, context) => {
-  const wxContext = cloud.getWXContext()
-
-  return {
-    event,
-    openid: wxContext.OPENID,
-    appid: wxContext.APPID,
-    unionid: wxContext.UNIONID,
-    sun: event.a + event.b
-  }
+  return db.collection('todos').add({
+    // data 字段表示需新增的 JSON 数据
+    data: {
+      content: 'learn cloud database',
+      date: new Date(),
+      title: '搞忘了',
+    }
+  })
+  .then(res => {
+    console.log(res)
+  })
 }
