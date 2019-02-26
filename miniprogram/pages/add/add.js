@@ -54,7 +54,20 @@ Page({
         date: timestamp
       },
       success(res) {
-        console.log(res) // 3
+        console.log(res);
+        wx.showToast({
+          title: '已完成',
+          icon: 'success',
+          duration: 2000 ,
+          success: function(){
+            setTimeout(function(){
+              wx.navigateTo({
+                url: '../todos/todos',
+              })
+            },2000)
+            
+          }
+        });        
       },
       fail: console.error
     })

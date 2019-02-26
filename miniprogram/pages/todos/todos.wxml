@@ -7,9 +7,9 @@
       class="userinfo-avatar"
       style="background-image: url({{avatarUrl}})"
     ></button>
-    <view class="todos-info-con"><text>待办</text><text class="todos-info-num todos">7</text></view>    
-    <view class="todos-info-con"><text>过期</text><text class="todos-info-num undos">7</text></view>
-    <view class="todos-info-con"><text>已办</text><text class="todos-info-num finish">5</text></view>
+    <view class="todos-info-con"><text>待办</text><text class="todos-info-num todos">{{todosCount}}</text></view>    
+    <view class="todos-info-con"><text>过期</text><text class="todos-info-num undos">{{deadLineCount}}</text></view>
+    <view class="todos-info-con"><text>已办</text><text class="todos-info-num finish">{{doneCount}}</text></view>
   </view>
   <text class="iconfont icon-add add-todo" bindtap="onAdd"></text>
 </view>
@@ -23,9 +23,9 @@
       </block>
       <view class="weui-navbar__slider" style="width:96px; left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
   </view>
-  <view class="weui-tab__panel">
+  <view class="weui-tab__panel">      
       <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-        <!--待办-->
+        <!--待办-->  
         <scroll-view
           scroll-y
           style="height: {{mainHeight}};"
@@ -34,45 +34,58 @@
           bindscroll="scroll"
           scroll-into-view="{{toView}}"
           scroll-top="{{scrollTop}}"
-        >
-          <view class="weui-cells weui-cells_after-title">
+        >      
+          <view class="weui-cells weui-cells_after-title" wx:if="{{todosList.length}}">
             <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{todosList}}">
                 <view class="weui-cell__bd">{{item.title}}</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access">{{item.date}}</view>
             </navigator>          
           </view>
-          <view class="weui-loadmore">
-            <view class="weui-loading"></view>
-            <view class="weui-loadmore__tips">正在加载</view>
-          </view>
-        </scroll-view>
+          <view class="weui-cells weui-cells_after-title" wx:else>
+              <view class="weui-loadmore weui-loadmore_line">
+                  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+              </view>
+          </view> 
+        </scroll-view>               
       </view>
       <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
         <!--过期-->
-        <view class="weui-cells weui-cells_after-title">
-          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-              <view class="weui-cell__bd">过期标题</view>
-              <view class="weui-cell__ft weui-cell__ft_in-access">2019-02-21</view>
-          </navigator>
-          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-              <view class="weui-cell__bd">过期标题</view>
-              <view class="weui-cell__ft weui-cell__ft_in-access">2019-02-21</view>
-          </navigator>
-        </view>
+        <scroll-view
+          scroll-y
+          style="height: {{mainHeight}};"
+          bindscrolltoupper="upper"
+          bindscrolltolower="lower"
+          bindscroll="scroll"
+          scroll-into-view="{{toView}}"
+          scroll-top="{{scrollTop}}"
+        > 
+          <view class="weui-cells weui-cells_after-title">
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{deadLineList}}">
+                <view class="weui-cell__bd">{{item.title}}</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{item.date}}</view>
+            </navigator>
+          </view>
+        </scroll-view> 
       </view>
       <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
         <!--已办-->
+        <scroll-view
+          scroll-y
+          style="height: {{mainHeight}};"
+          bindscrolltoupper="upper"
+          bindscrolltolower="lower"
+          bindscroll="scroll"
+          scroll-into-view="{{toView}}"
+          scroll-top="{{scrollTop}}"
+        > 
         <view class="weui-cells weui-cells_after-title">
-          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-              <view class="weui-cell__bd">已办标题</view>
-              <view class="weui-cell__ft weui-cell__ft_in-access">2019-02-21</view>
-          </navigator>
-          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-              <view class="weui-cell__bd">已办标题</view>
-              <view class="weui-cell__ft weui-cell__ft_in-access">2019-02-21</view>
+          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{doneList}}">
+              <view class="weui-cell__bd">{{item.title}}</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access">{{item.date}}</view>
           </navigator>
         </view>
-      </view>
+      </scroll-view>
+      </view>    
   </view>
 </view>
 

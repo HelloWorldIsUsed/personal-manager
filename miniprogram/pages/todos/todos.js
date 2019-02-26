@@ -16,18 +16,12 @@ Page({
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
-    todosList: [
-      {
-        title:'1',
-        content:'1',
-        date: time.formatTime(new Date()),        
-      },
-      {
-        title:'1',
-        content:'1',
-        date:time.formatTime(new Date()),        
-      }
-    ]
+    todosCount: 0,
+    deadLineCount: 0,
+    doneCount:0,
+    todosList: [],
+    deadLineList: [],
+    doneList: []    
   },
 
   /**
@@ -58,17 +52,16 @@ Page({
               sliderLeft: (res.windowWidth / _this.data.tabs.length - sliderWidth) / 2,
               sliderOffset: res.windowWidth / _this.data.tabs.length * _this.data.activeIndex
           });
-          /*
-          console.log(res.screenHeight);
-          wx.createSelectorQuery().select('.userinfo').boundingClientRect(function (rect) {
-            console.log(rect.height);
-            wx.createSelectorQuery().select('.weui-navbar').boundingClientRect(function (rect1) {
-              console.log(rect1.height);
-              _this.mainHeight = res.screenHeight - rect.height -rect1.height + 'px';
-              console.log(_this.mainHeight);
-            }).exec()
+          
+          console.log(res);
+          wx.createSelectorQuery().select('.weui-tab__content').boundingClientRect(function (rect) {
+            console.log(rect.top);
+            let listHeight = res.windowHeight - rect.top + 'px';
+            _this.setData({
+              mainHeight: listHeight
+            })
           }).exec()
-          */
+          
       }
     });
 
@@ -76,9 +69,27 @@ Page({
       // 云函数名称
       name: 'queryList',
       success(res) {
-        res.result.forEach( item => item.date = time.formatTime(new Date(item.date)));
+        //res.result.forEach( item => item.date = time.formatTime(new Date(item.date)));
+        let todosList = res.result.filter( item => {
+          console.log(item);
+          return !item.done && (new Date(item.date).getTime() > new Date().getTime())
+        })
+        todosList.forEach( item => item.date = time.formatTime(new Date(item.date)));
+        let deadLineList = res.result.filter( item => {
+          return !item.done && (new Date(item.date).getTime() < new Date().getTime());
+        })
+        deadLineList.forEach( item => item.date = time.formatTime(new Date(item.date)));
+        let doneList = res.result.filter( item => {
+          return item.done
+        })
+        doneList.forEach( item => item.date = time.formatTime(new Date(item.date)));
         _this.setData({
-          todosList: res.result
+          todosList: todosList,
+          deadLineList: deadLineList,
+          doneList: doneList,
+          todosCount: todosList.length,
+          deadLineCount: deadLineList.length,
+          doneCount: doneList.length
         })
       },
       fail: console.error

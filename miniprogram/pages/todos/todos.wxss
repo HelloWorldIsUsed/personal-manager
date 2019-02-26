@@ -53,9 +53,11 @@
   color: #7e7f7e;
 }
 
-.todos-list-con{
-  margin-top: 40rpx;
+.weui-loadmore_line{
+  margin: 0;
+  width: 100%;
+  padding: 200rpx 0;
 }
-.todos-list{
 
-}
+
+
