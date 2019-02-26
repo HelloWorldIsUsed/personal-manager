@@ -21,12 +21,11 @@ function formatNumber(n) {
  * number: 传入时间戳 
  * format：返回格式，支持自定义，但参数必须与formateArr里保持一致 
 */
-function formatTimeTwo(number, format) {
+function formatTimeTwo(date, format) {
 
     var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
     var returnArr = [];
 
-    var date = new Date(number * 1000);
     returnArr.push(date.getFullYear());
     returnArr.push(formatNumber(date.getMonth() + 1));
     returnArr.push(formatNumber(date.getDate()));

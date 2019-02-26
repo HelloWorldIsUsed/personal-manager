@@ -6,7 +6,7 @@
                 <view class="weui-label">标题</view>
             </view>
             <view class="weui-cell__bd">
-                <input class="weui-input" placeholder="请输入标题"/>
+                <input class="weui-input" value="{{title}}" placeholder="请输入标题" bindinput='changeTitle'/>
             </view>
         </view>
         <view class="weui-cell weui-cell_input">
@@ -14,7 +14,7 @@
                 <view class="weui-label">日期</view>
             </view>
             <view class="weui-cell__bd">
-                <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                <picker mode="date" value="{{date}}" bindchange="bindDateChange">
                     <view class="weui-input">{{date}}</view>
                 </picker>
             </view>
@@ -24,7 +24,7 @@
                 <view class="weui-label">时间</view>
             </view>
             <view class="weui-cell__bd">
-                <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+                <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
                     <view class="weui-input">{{time}}</view>
                 </picker>
             </view>
@@ -34,12 +34,12 @@
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell">
             <view class="weui-cell__bd">
-                <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" />
+                <textarea class="weui-textarea" placeholder="请输入文本" bindinput='changeContent' style="height: 3.3em" />
                 <view class="weui-textarea-counter">0/200</view>
             </view>
         </view>
     </view>
     <view class="weui-btn-area">
-        <button class="weui-btn" type="primary" bindtap="showTopTips">确定</button>
+        <button class="weui-btn" type="primary" bindtap="showTopTips" bindtap="bindAddtodos">确定</button>
     </view>
 </view>

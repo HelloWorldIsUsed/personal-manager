@@ -1,12 +1,16 @@
 // miniprogram/pages/add/add.js
+var time = require('./../../utils/formatDate')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    date: "2016-09-01",
-    time: "12:01",
+    title: "",
+    content: "",
+    date: time.formatTimeTwo(new Date(),'Y-M-D'),
+    time: time.formatTimeTwo(new Date(),'h:m:s'),
   },
 
   /**
@@ -26,4 +30,33 @@ Page({
         time: e.detail.value
     })
   },
+  changeTitle: function (e){
+    this.setData({
+      title: e.detail.value
+    })
+  },
+  changeContent: function (e){
+    this.setData({
+      content: e.detail.value
+    })
+  },
+  bindAddtodos: function (e) {
+    console.log(this.data.date);
+    console.log(this.data.time);
+    let timestamp = new Date(this.data.date + ' ' + this.data.time).getTime();
+    console.log(timestamp);
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'add',
+      data: {
+        content: this.data.content,
+        title: this.data.title,
+        date: timestamp
+      },
+      success(res) {
+        console.log(res) // 3
+      },
+      fail: console.error
+    })
+  }
 })
