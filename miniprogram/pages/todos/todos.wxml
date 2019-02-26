@@ -59,11 +59,16 @@
           scroll-into-view="{{toView}}"
           scroll-top="{{scrollTop}}"
         > 
-          <view class="weui-cells weui-cells_after-title">
-            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{deadLineList}}">
+          <view class="weui-cells weui-cells_after-title" wx:if="{{deadLineList.length}}">
+            <navigator url="../detail/detail" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{deadLineList}}">
                 <view class="weui-cell__bd">{{item.title}}</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access">{{item.date}}</view>
             </navigator>
+          </view>
+          <view class="weui-cells weui-cells_after-title" wx:else>
+              <view class="weui-loadmore weui-loadmore_line">
+                  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+              </view>
           </view>
         </scroll-view> 
       </view>
@@ -78,11 +83,16 @@
           scroll-into-view="{{toView}}"
           scroll-top="{{scrollTop}}"
         > 
-        <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cells weui-cells_after-title" wx:if="{{doneList.length}}">
           <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{doneList}}">
               <view class="weui-cell__bd">{{item.title}}</view>
               <view class="weui-cell__ft weui-cell__ft_in-access">{{item.date}}</view>
           </navigator>
+        </view>
+        <view class="weui-cells weui-cells_after-title" wx:else>
+            <view class="weui-loadmore weui-loadmore_line">
+                <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+            </view>
         </view>
       </scroll-view>
       </view>    
