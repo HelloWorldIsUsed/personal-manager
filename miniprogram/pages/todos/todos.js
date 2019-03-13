@@ -70,6 +70,7 @@ Page({
       name: 'queryList',
       success(res) {
         //res.result.forEach( item => item.date = time.formatTime(new Date(item.date)));
+        console.log(res);
         let todosList = res.result.filter( item => {
           console.log(item);
           return !item.done && (new Date(item.date).getTime() > new Date().getTime())

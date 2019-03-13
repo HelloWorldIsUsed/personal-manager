@@ -1,9 +1,9 @@
 <!--miniprogram/pages/detail/detail.wxml-->
 <view class="weui-media-box weui-media-box_text">
-    <view class="weui-media-box__title weui-media-box__title_in-text">标题一</view>
-    <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+    <view class="weui-media-box__title weui-media-box__title_in-text">{{todoData.title}}</view>
+    <view class="weui-media-box__desc">{{todoData.content}}</view>
     <view class="weui-media-box__info">
         <view class="weui-media-box__info__meta">时间</view>
-        <view class="weui-media-box__info__meta">2019-09-02 03:03:04</view>
+        <view class="weui-media-box__info__meta">{{todoData.date}}</view>
     </view>
 </view>

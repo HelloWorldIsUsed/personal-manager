@@ -36,7 +36,7 @@
           scroll-top="{{scrollTop}}"
         >      
           <view class="weui-cells weui-cells_after-title" wx:if="{{todosList.length}}">
-            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{todosList}}">
+            <navigator url="../detail/detail?id={{item._id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{todosList}}">
                 <view class="weui-cell__bd">{{item.title}}</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access">{{item.date}}</view>
             </navigator>          
@@ -60,7 +60,7 @@
           scroll-top="{{scrollTop}}"
         > 
           <view class="weui-cells weui-cells_after-title" wx:if="{{deadLineList.length}}">
-            <navigator url="../detail/detail" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{deadLineList}}">
+            <navigator url="../detail/detail?id={{item._id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{deadLineList}}">
                 <view class="weui-cell__bd">{{item.title}}</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access">{{item.date}}</view>
             </navigator>
@@ -84,7 +84,7 @@
           scroll-top="{{scrollTop}}"
         > 
         <view class="weui-cells weui-cells_after-title" wx:if="{{doneList.length}}">
-          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{doneList}}">
+          <navigator url="../detail/detail?id={{item._id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{doneList}}">
               <view class="weui-cell__bd">{{item.title}}</view>
               <view class="weui-cell__ft weui-cell__ft_in-access">{{item.date}}</view>
           </navigator>
