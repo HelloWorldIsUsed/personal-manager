@@ -23,10 +23,10 @@
   </view>
 
 
-   <!-- 备忘录 -->
+
   <view class="uploader">
     <navigator url="../todos/todos" open-type="navigate" class="uploader-text">
-      <text>备忘录</text>
+      <text>图片</text>
     </navigator>
   </view>
 
