@@ -1,4 +1,4 @@
-/* miniprogram/pages/todos/todos.wxss */
+/* miniprogram/pages/plan/plan.wxss */
 .userinfo {
   margin-top: 40rpx;
   height: 140rpx;
@@ -29,16 +29,16 @@
   background-color: white;
 }
 
-.todos-info-con{
+.plan-info-con{
   font-size: 30rpx;
   margin-right: 20rpx;
 }
 
-.todos-info-num{
+.plan-info-num{
   margin-left: 10rpx;
 }
 
-.add-todo{
+.add-plan{
   font-size:60rpx;
   margin: 20rpx;
 }
@@ -46,7 +46,7 @@
 .finish{
   color: #34c349;
 }
-.todos{
+.plan{
   color: #f2584c;  
 }
 .undos{
@@ -57,6 +57,9 @@
   margin: 0;
   width: 100%;
   padding: 200rpx 0;
+}
+.plan-time{
+  font-size:14px;
 }
 
 

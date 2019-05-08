@@ -17,9 +17,6 @@ Page({
       })
       return
     }
-    wx.navigateTo({
-      //url: '../todos/todos',
-    })
 
     // 获取用户信息
     wx.getSetting({

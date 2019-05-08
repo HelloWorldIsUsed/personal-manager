@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    todoData:{}
+      planData:{}
   },
 
   /**
@@ -23,10 +23,10 @@ Page({
       success(res){
         console.log(res);
         if(res.result.length){
-          var todoData = res.result[0];
-          todoData.date = time.formatTime(new Date(todoData.date));
+          var planData = res.result[0];
+          planData.date = time.formatTime(new Date(planData.date));
           _this.setData({
-            todoData: todoData
+            planData: planData
           })
         }
         

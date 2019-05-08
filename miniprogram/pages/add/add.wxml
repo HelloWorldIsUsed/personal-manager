@@ -1,5 +1,5 @@
 <!--miniprogram/pages/add/add.wxml-->
-<view class="add-todo">
+<view class="add-plan">
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
             <view class="weui-cell__hd">
@@ -40,6 +40,6 @@
         </view>
     </view>
     <view class="weui-btn-area">
-        <button class="weui-btn" type="primary" bindtap="showTopTips" bindtap="bindAddtodos">确定</button>
+        <button class="weui-btn" type="primary" bindtap="bindAddPlan">确定</button>
     </view>
 </view>

@@ -1,4 +1,4 @@
-// miniprogram/pages/todos/todos.js
+// miniprogram/pages/plan/plan.js
 var time = require('./../../utils/formatDate')
 var sliderWidth = 96;
 
@@ -16,10 +16,10 @@ Page({
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
-    todosCount: 0,
+    planCount: 0,
     deadLineCount: 0,
     doneCount:0,
-    todosList: [],
+    planList: [],
     deadLineList: [],
     doneList: []    
   },
@@ -71,24 +71,24 @@ Page({
       success(res) {
         //res.result.forEach( item => item.date = time.formatTime(new Date(item.date)));
         console.log(res);
-        let todosList = res.result.filter( item => {
+        let planList = res.result.filter( item => {
           console.log(item);
           return !item.done && (new Date(item.date).getTime() > new Date().getTime())
         })
-        todosList.forEach( item => item.date = time.formatTime(new Date(item.date)));
+        planList.forEach( item => item.date = time.formatTimeTwo(new Date(item.date),'Y-M-D h:m'));
         let deadLineList = res.result.filter( item => {
           return !item.done && (new Date(item.date).getTime() < new Date().getTime());
         })
-        deadLineList.forEach( item => item.date = time.formatTime(new Date(item.date)));
+        deadLineList.forEach( item => item.date = time.formatTimeTwo(new Date(item.date),'Y-M-D h:m'));
         let doneList = res.result.filter( item => {
           return item.done
         })
-        doneList.forEach( item => item.date = time.formatTime(new Date(item.date)));
+        doneList.forEach( item => item.date = time.formatTimeTwo(new Date(item.date),'Y-M-D h:m'));
         _this.setData({
-          todosList: todosList,
+          planList: planList,
           deadLineList: deadLineList,
           doneList: doneList,
-          todosCount: todosList.length,
+          planCount: planList.length,
           deadLineCount: deadLineList.length,
           doneCount: doneList.length
         })

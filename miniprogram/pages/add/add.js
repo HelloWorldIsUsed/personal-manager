@@ -40,7 +40,7 @@ Page({
       content: e.detail.value
     })
   },
-  bindAddtodos: function (e) {
+  bindAddPlan: function (e) {
     console.log(this.data.date);
     console.log(this.data.time);
     let timestamp = new Date(this.data.date + ' ' + this.data.time).getTime();
@@ -62,7 +62,7 @@ Page({
           success: function(){
             setTimeout(function(){
               wx.navigateTo({
-                url: '../todos/todos',
+                url: '../plan/plan',
               })
             },2000)
             

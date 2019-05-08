@@ -25,8 +25,8 @@
 
 
   <view class="uploader">
-    <navigator url="../todos/todos" open-type="navigate" class="uploader-text">
-      <text>图片</text>
+    <navigator url="../plan/plan" open-type="navigate" class="uploader-text">
+      <text>计划</text>
     </navigator>
   </view>
 

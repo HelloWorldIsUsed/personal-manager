@@ -1,9 +1,9 @@
 <!--miniprogram/pages/detail/detail.wxml-->
 <view class="weui-media-box weui-media-box_text">
-    <view class="weui-media-box__title weui-media-box__title_in-text">{{todoData.title}}</view>
-    <view class="weui-media-box__desc">{{todoData.content}}</view>
+    <view class="weui-media-box__title weui-media-box__title_in-text detail-title">{{planData.title}}</view>
+    <view class="weui-media-box__desc">{{planData.content}}</view>
     <view class="weui-media-box__info">
         <view class="weui-media-box__info__meta">时间</view>
-        <view class="weui-media-box__info__meta">{{todoData.date}}</view>
+        <view class="weui-media-box__info__meta">{{planData.date}}</view>
     </view>
 </view>

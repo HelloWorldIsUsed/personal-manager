@@ -9,8 +9,10 @@
 		"newFeature": true
 	},
 	"appid": "wx6e7741eee542f220",
-	"projectname": "XTodos",
+	"projectname": "XProject",
 	"libVersion": "2.2.5",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

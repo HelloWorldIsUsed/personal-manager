@@ -1,9 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/todos/todos",
+    "pages/plan/plan",
     "pages/add/add",
-    "pages/detail",
     "pages/detail/detail"
   ],
   "window": {
@@ -12,5 +11,6 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "SelfManager",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

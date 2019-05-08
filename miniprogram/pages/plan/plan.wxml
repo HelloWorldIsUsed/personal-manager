@@ -1,4 +1,4 @@
-<!--miniprogram/pages/todos/todos.wxml-->
+<!--miniprogram/pages/plan/plan.wxml-->
 <view class="userinfo">
   <view class="userinfo-con">
     <button 
@@ -7,11 +7,11 @@
       class="userinfo-avatar"
       style="background-image: url({{avatarUrl}})"
     ></button>
-    <view class="todos-info-con"><text>待办</text><text class="todos-info-num todos">{{todosCount}}</text></view>    
-    <view class="todos-info-con"><text>过期</text><text class="todos-info-num undos">{{deadLineCount}}</text></view>
-    <view class="todos-info-con"><text>已办</text><text class="todos-info-num finish">{{doneCount}}</text></view>
+    <view class="plan-info-con"><text>待办</text><text class="plan-info-num plan">{{planCount}}</text></view>    
+    <view class="plan-info-con"><text>过期</text><text class="plan-info-num undos">{{deadLineCount}}</text></view>
+    <view class="plan-info-con"><text>已办</text><text class="plan-info-num finish">{{doneCount}}</text></view>
   </view>
-  <text class="iconfont icon-add add-todo" bindtap="onAdd"></text>
+  <text class="iconfont icon-add add-plan" bindtap="onAdd"></text>
 </view>
 
 <view class="weui-tab">
@@ -35,10 +35,10 @@
           scroll-into-view="{{toView}}"
           scroll-top="{{scrollTop}}"
         >      
-          <view class="weui-cells weui-cells_after-title" wx:if="{{todosList.length}}">
-            <navigator url="../detail/detail?id={{item._id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{todosList}}">
+          <view class="weui-cells weui-cells_after-title" wx:if="{{planList.length}}">
+            <navigator url="../detail/detail?id={{item._id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{planList}}">
                 <view class="weui-cell__bd">{{item.title}}</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access">{{item.date}}</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access plan-time">{{item.date}}</view>
             </navigator>          
           </view>
           <view class="weui-cells weui-cells_after-title" wx:else>
