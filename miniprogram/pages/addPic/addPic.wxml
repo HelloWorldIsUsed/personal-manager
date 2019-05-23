@@ -1,0 +1,16 @@
+<!--miniprogram/pages/addPic/addPic.wxml-->
+<view class="add-plan">
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">url</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" value="{{url}}" placeholder="请输入图片URL" bindinput='changeUrl'/>
+            </view>
+        </view>
+    </view>
+    <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" bindtap="bindAddPic">确定</button>
+    </view>
+</view>

@@ -1,0 +1,22 @@
+<!--miniprogram/pages/picCollect/picCollect.wxml-->
+
+<view class="userinfo">
+  <view class="userinfo-con">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+    ></button>
+    <!--
+    <view class="pic-con"><text>相册</text><text class="category">7</text></view>    
+    <view class="pic-con"><text>照片</text><text class="category">21</text></view>
+    -->
+  </view>
+  <text class="iconfont icon-add add-picArr" bindtap="onAdd"></text>
+</view>
+
+<image
+  style="width: 100%; background-color: #eeeeee;" wx:for="{{picList}}"
+  src="{{item.url}}"
+></image>

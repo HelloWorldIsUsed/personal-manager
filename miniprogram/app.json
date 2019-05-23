@@ -3,13 +3,15 @@
     "pages/index/index",
     "pages/plan/plan",
     "pages/add/add",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/picCollect/picCollect",
+    "pages/addPic/addPic"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "SelfManager",
+    "navigationBarTitleText": "个人中心",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"

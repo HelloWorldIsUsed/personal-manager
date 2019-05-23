@@ -7,7 +7,8 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+    index: 0
   },
 
   onLoad: function() {
@@ -33,6 +34,18 @@ Page({
           })
         }
       }
+    })
+
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'queryIndex',
+      success: res => {
+        console.log(res) // 3
+        this.setData({
+          index: res.result[0].index
+        })
+      },
+      fail: console.error
     })
 
     /*wx.cloud.callFunction({

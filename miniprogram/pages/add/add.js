@@ -41,9 +41,8 @@ Page({
     })
   },
   bindAddPlan: function (e) {
-    console.log(this.data.date);
-    console.log(this.data.time);
-    let timestamp = new Date(this.data.date + ' ' + this.data.time).getTime();
+    let iosDate = time.formatTimeTwo(new Date(this.data.date),'Y/M/D');
+    let timestamp = new Date(iosDate + ' ' + this.data.time).getTime();
     console.log(timestamp);
     wx.cloud.callFunction({
       // 云函数名称
