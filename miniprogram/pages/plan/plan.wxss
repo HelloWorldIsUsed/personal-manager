@@ -30,6 +30,8 @@
 }
 
 .plan-info-con{
+  display: flex;
+  align-items: center;
   font-size: 30rpx;
   margin-right: 20rpx;
 }
@@ -40,7 +42,26 @@
 
 .add-plan{
   font-size:60rpx;
-  margin: 20rpx;
+  margin:20px 10px;
+}
+
+.edit-plan{
+  font-size:60rpx;
+}
+
+.delete-plan{
+  font-size: 55rpx;
+  margin-right: 10rpx;
+}
+
+.check-plan{
+  font-size: 60rpx;
+  margin-right: 10rpx;
+}
+
+.rollback-plan{
+  font-size: 60rpx;
+  margin-right: 10rpx;
 }
 
 .finish{

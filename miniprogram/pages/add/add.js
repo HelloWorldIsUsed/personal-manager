@@ -44,6 +44,20 @@ Page({
     let iosDate = time.formatTimeTwo(new Date(this.data.date),'Y/M/D');
     let timestamp = new Date(iosDate + ' ' + this.data.time).getTime();
     console.log(timestamp);
+    if(this.data.title == ""){
+      wx.showModal({
+        content: '请填写主要标题',
+        showCancel: false
+      });
+      return;
+    }
+    if(this.data.content == ""){
+      wx.showModal({
+        content: '请填写主要内容',
+        showCancel: false
+      });
+      return;
+    }    
     wx.cloud.callFunction({
       // 云函数名称
       name: 'add',

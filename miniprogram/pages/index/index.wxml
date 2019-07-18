@@ -23,12 +23,13 @@
   </view>
 
 
-  
+  <!--
   <view class="uploader" wx:if="{{index == 1}}">
     <navigator url="../plan/plan" open-type="navigate" class="uploader-text">
       <text>计划</text>
     </navigator>
   </view>
+  -->
   
 
 </view>

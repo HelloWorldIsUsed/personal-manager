@@ -2,3 +2,7 @@
 .detail-title{
     text-align: center;
 }
+
+.plan-detail{
+    padding: 35rpx;
+}

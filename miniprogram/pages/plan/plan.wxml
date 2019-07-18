@@ -7,11 +7,23 @@
       class="userinfo-avatar"
       style="background-image: url({{avatarUrl}})"
     ></button>
-    <view class="plan-info-con"><text>待办</text><text class="plan-info-num plan">{{planCount}}</text></view>    
-    <view class="plan-info-con"><text>过期</text><text class="plan-info-num undos">{{deadLineCount}}</text></view>
-    <view class="plan-info-con"><text>已办</text><text class="plan-info-num finish">{{doneCount}}</text></view>
+    <view class="plan-info-con"><text>待办</text><view class="weui-badge" style="margin-left: 5px;">{{planCount}}</view></view>    
+    <view class="plan-info-con"><text>过期</text><view class="weui-badge" style="margin-left: 5px; background-color: #7e7f7e;">{{deadLineCount}}</view></view>
+    <view class="plan-info-con"><text>已办</text><view class="weui-badge" style="margin-left: 5px; background-color: #34c349;">{{doneCount}}</view></view>
   </view>
-  <text class="iconfont icon-add add-plan" bindtap="onAdd"></text>
+  <view class="btn-con" wx:if="{{!editing}}">
+    <text class="iconfont icon-edit edit-plan" bindtap="onEdit"></text>
+    <text class="iconfont icon-plus add-plan" bindtap="onAdd"></text>
+  </view>
+  <view class="btn-con" wx:if="{{editing}}">
+    <text class="iconfont icon-rollback rollback-plan" bindtap="onRollback"></text>
+    <text class="iconfont icon-icon_delete delete-plan" bindtap="onDelete"></text>
+    <text class="iconfont icon-check check-plan" wx:if="{{activeIndex != 2}}" bindtap="onDone"></text>    
+  </view>
+</view>
+
+<view class="operate">
+
 </view>
 
 <view class="weui-tab">
@@ -36,10 +48,22 @@
           scroll-top="{{scrollTop}}"
         >      
           <view class="weui-cells weui-cells_after-title" wx:if="{{planList.length}}">
-            <navigator url="../detail/detail?id={{item._id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{planList}}">
+            <navigator url="../detail/detail?id={{item._id}}" wx:if="{{!editing}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{planList}}">
                 <view class="weui-cell__bd">{{item.title}}</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access plan-time">{{item.date}}</view>
-            </navigator>          
+            </navigator>   
+            <checkbox-group bindchange="checkboxChange" wx:if="{{editing}}">
+                <label class="weui-cell weui-check__label" wx:for="{{planList}}" wx:key="value">
+                    <checkbox class="weui-check" value="{{item.index}}" checked="{{item.checked}}"/>
+
+                    <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                        <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                        <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+                    </view>
+                    <view class="weui-cell__bd">{{item.title}}</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access">{{item.date}}</view>
+                </label>
+            </checkbox-group>       
           </view>
           <view class="weui-cells weui-cells_after-title" wx:else>
               <view class="weui-loadmore weui-loadmore_line">
@@ -60,10 +84,22 @@
           scroll-top="{{scrollTop}}"
         > 
           <view class="weui-cells weui-cells_after-title" wx:if="{{deadLineList.length}}">
-            <navigator url="../detail/detail?id={{item._id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{deadLineList}}">
+            <navigator url="../detail/detail?id={{item._id}}" wx:if="{{!editing}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{deadLineList}}">
                 <view class="weui-cell__bd">{{item.title}}</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access">{{item.date}}</view>
             </navigator>
+            <checkbox-group bindchange="checkboxChange" wx:if="{{editing}}">
+                <label class="weui-cell weui-check__label" wx:for="{{deadLineList}}" wx:key="value">
+                    <checkbox class="weui-check" value="{{item.index}}" checked="{{item.checked}}"/>
+
+                    <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                        <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                        <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+                    </view>
+                    <view class="weui-cell__bd">{{item.title}}</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access">{{item.date}}</view>
+                </label>
+            </checkbox-group>
           </view>
           <view class="weui-cells weui-cells_after-title" wx:else>
               <view class="weui-loadmore weui-loadmore_line">
@@ -84,10 +120,22 @@
           scroll-top="{{scrollTop}}"
         > 
         <view class="weui-cells weui-cells_after-title" wx:if="{{doneList.length}}">
-          <navigator url="../detail/detail?id={{item._id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{doneList}}">
+          <navigator url="../detail/detail?id={{item._id}}" wx:if="{{!editing}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{doneList}}">
               <view class="weui-cell__bd">{{item.title}}</view>
               <view class="weui-cell__ft weui-cell__ft_in-access">{{item.date}}</view>
           </navigator>
+          <checkbox-group bindchange="checkboxChange" wx:if="{{editing}}">
+                <label class="weui-cell weui-check__label" wx:for="{{doneList}}" wx:key="value">
+                    <checkbox class="weui-check" value="{{item.index}}" checked="{{item.checked}}"/>
+
+                    <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                        <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                        <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+                    </view>
+                    <view class="weui-cell__bd">{{item.title}}</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access">{{item.date}}</view>
+                </label>
+            </checkbox-group>
         </view>
         <view class="weui-cells weui-cells_after-title" wx:else>
             <view class="weui-loadmore weui-loadmore_line">

@@ -14,7 +14,8 @@ exports.main = async (e, context) => {
       content: e.content,
       date: new Date(e.date),
       title: e.title,
-      openId:OPENID
+      openId:OPENID,
+      done: false
     }
   })
   .then(res => {

@@ -1,5 +1,5 @@
 <!--miniprogram/pages/detail/detail.wxml-->
-<view class="weui-media-box weui-media-box_text">
+<view class="weui-media-box weui-media-box_text plan-detail">
     <view class="weui-media-box__title weui-media-box__title_in-text detail-title">{{planData.title}}</view>
     <view class="weui-media-box__desc">{{planData.content}}</view>
     <view class="weui-media-box__info">
