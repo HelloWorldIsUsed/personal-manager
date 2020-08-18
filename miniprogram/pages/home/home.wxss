@@ -1,0 +1,2 @@
+/* miniprogram/pages/home/home.wxss */
+.weui-tabbar{position:fixed;bottom:0;left:0;right:0}

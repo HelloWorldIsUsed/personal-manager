@@ -1,0 +1,22 @@
+<!--miniprogram/pages/home/home.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+	<view class="page__bd" style="height: 100%;">
+        <view class="page__hd">
+	    	<view class="page__title">Panel</view>
+	    	<view class="page__desc">面板</view>
+        </view>
+        <!--
+		<view class="weui-tab">
+			<view class="weui-tab__panel">
+			</view>
+			<view class="weui-tabbar">
+                <view class="weui-tabbar__item" wx:for="{{list}}"> 
+                    <image src="../images/icon_tabbar.png" alt class="weui-tabbar__icon"></image>
+					<view class="weui-tabbar__label">{{item.text}}</view>
+                </view>
+			</view>
+        </view>
+        -->
+	</view>
+</view>
+

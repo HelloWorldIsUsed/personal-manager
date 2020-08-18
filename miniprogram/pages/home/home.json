@@ -1,0 +1,21 @@
+{
+    "tabBar":{
+        "list":[
+          {
+            "text":"每周推荐",
+            "pagePath":"pages/weekly/weekly",
+            "iconsPath":"images/icons/weekly.png",
+            "selectedIconPath":"images/icons/weekly-selected.png"
+          },
+          {
+            "text":"关于",
+            "pagePath":"pages/about/about",
+            "iconPath":"images/icons/about.png",
+            "selectedIconPath":"images/icons/about-selected.png"
+          }
+        ],
+        "color":"#000",
+        "selectedColor":"#00f"
+    },
+    "navigationBarTitleText": "UI组件库"
+}

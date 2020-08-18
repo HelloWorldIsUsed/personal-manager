@@ -1,0 +1,23 @@
+{
+  "name": "personal-manager",
+  "version": "1.0.0",
+  "description": "无",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HelloWorldIsUsed/personal-manager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HelloWorldIsUsed/personal-manager/issues"
+  },
+  "homepage": "https://github.com/HelloWorldIsUsed/personal-manager#readme",
+  "dependencies": {
+    "weui-miniprogram": "^1.0.5"
+  },
+  "devDependencies": {}
+}
