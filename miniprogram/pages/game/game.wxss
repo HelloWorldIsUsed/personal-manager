@@ -1,0 +1,12 @@
+/* miniprogram/pages/game/game.wxss */
+.game_panel{
+    padding-bottom: 20px;
+}
+.weui-media-box__title{
+    text-align: center;
+}
+.weui-media-box__score{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 30px;
+}

@@ -1,0 +1,35 @@
+<!--miniprogram/pages/team/team.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+	<view class="page__hd">
+		<view class="page__title">队员简介</view>
+		<view class="page__desc">牛逼哄哄</view>
+    </view>
+    <view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+			<view class="weui-panel__bd">
+                <navigator url="../plan/plan" open-type="navigate" class="uploader-text">
+                    <a class="weui-media-box weui-media-box_appmsg" wx:for="{{team}}">
+				    	<view class="weui-media-box__hd">
+				    		<image class="weui-media-box__thumb" src="./../images/people.png" alt></image>
+				    	</view>
+				    	<view class="weui-media-box__bd">
+				    		<h4 class="weui-media-box__title">姓名</h4>
+				    		<view class="weui-media-box__desc">
+                                <view class="weui-flex">
+		                        	<view class="weui-flex__item"><view class="placeholder">身高：178cm</view></view>
+		                        	<view class="weui-flex__item"><view class="placeholder">体重：80kg</view></view>
+		                        </view>
+                            </view>
+                            <view class="weui-media-box__desc">
+                                <view class="weui-flex">
+		                        	<view class="weui-flex__item"><view class="placeholder">号码：3</view></view>
+		                        	<view class="weui-flex__item"><view class="placeholder">位置：小前</view></view>
+		                        </view>
+                            </view>
+				    	</view>
+				    </a>
+                </navigator>				
+			</view>
+        </view>
+    </view>
+</view>

@@ -5,7 +5,10 @@
     "pages/add/add",
     "pages/detail/detail",
     "pages/picCollect/picCollect",
-    "pages/addPic/addPic"    
+    "pages/addPic/addPic",
+    "pages/team/team",
+    "pages/game/game",
+    "pages/gameDetail/gameDetail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -20,21 +23,29 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "iconPath": "pages/images/icon_tabbar.png",
-        "text": "首页"      },
-      {
         "pagePath": "pages/home/home",
-        "iconPath": "pages/images/icon_tabbar.png",
-        "text": "比赛"      },
+        "iconPath": "pages/images/homepage.png",
+        "selectedIconPath": "pages/images/homepage (1).png",
+        "text": "首页"
+      },
       {
-          "pagePath": "pages/index/index",
-          "iconPath": "pages/images/icon_tabbar.png",
-          "text": "队员"      },
-        {
-          "pagePath": "pages/home/home",
-          "iconPath": "pages/images/icon_tabbar.png",
-          "text": "我的"      }
+        "pagePath": "pages/game/game",
+        "iconPath": "pages/images/Basketball Hoop.png",
+        "selectedIconPath": "pages/images/Basketball Hoop (1).png",
+        "text": "比赛"
+      },
+      {
+        "pagePath": "pages/team/team",
+        "iconPath": "pages/images/group.png",
+        "selectedIconPath": "pages/images/group (1).png",
+        "text": "队员"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "pages/images/people.png",
+        "selectedIconPath": "pages/images/people (1).png",
+        "text": "我的"
+      }
     ]
   },
   "sitemapLocation": "sitemap.json"

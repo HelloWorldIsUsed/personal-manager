@@ -1,0 +1,4 @@
+/* miniprogram/pages/team/team.wxss */
+.person-detail{
+    margin-right: 10px;
+}
