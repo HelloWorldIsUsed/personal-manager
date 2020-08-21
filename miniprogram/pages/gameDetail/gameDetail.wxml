@@ -1,2 +1,42 @@
 <!--miniprogram/pages/gameDetail/gameDetail.wxml-->
-<text>miniprogram/pages/gameDetail/gameDetail.wxml</text>
+<view class="page" data-weui-theme="{{theme}}">
+	<view class="page__hd game_scan">
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder">凡尔赛三期</view></view>
+			<view class="placeholder"><view class="placeholder">vs</view></view>
+			<view class="weui-flex__item"><view class="placeholder">凡尔赛二期</view></view>
+		</view>
+        <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder">100</view></view>
+			<view class="placeholder"><view class="placeholder">:</view></view>
+			<view class="weui-flex__item"><view class="placeholder">99</view></view>
+		</view>
+    </view>
+    <view class="weui-panel__bd mvp_panel">
+        <navigator url="../plan/plan" open-type="navigate" class="uploader-text">
+            <a class="weui-media-box weui-media-box_appmsg">
+		    	<view class="weui-media-box__hd">
+		    		<image class="weui-media-box__thumb" src="./../images/people.png" alt></image>
+		    	</view>
+		    	<view class="weui-media-box__bd">
+		    		<h4 class="weui-media-box__title">姓名</h4>
+		    		<view class="weui-media-box__desc">
+                        <view class="weui-flex">
+	                    	<view class="weui-flex__item"><view class="placeholder">得分：178cm</view></view>
+	                    	<view class="weui-flex__item"><view class="placeholder">篮板：80kg</view></view>
+	                    </view>
+                    </view>
+                    <view class="weui-media-box__desc">
+                        <view class="weui-flex">
+	                    	<view class="weui-flex__item"><view class="placeholder">助攻：3</view></view>
+	                    	<view class="weui-flex__item"><view class="placeholder">失误：小前</view></view>
+	                    </view>
+                    </view>
+		    	</view>
+		    </a>
+        </navigator>				
+	</view>
+    <view class="game_detail">
+        <table tableThemes="{{themeArr}}" tableItems="{{itemArr}}"></table>
+    </view>
+</view>

@@ -1,1 +1,10 @@
 /* miniprogram/pages/gameDetail/gameDetail.wxss */
+.game_scan{
+    text-align: center;
+}
+.mvp_panel{
+    border-top: 1rpx solid #5f677a;
+}
+.game_detail{
+    border-bottom: 1rpx solid #5f677a;
+}

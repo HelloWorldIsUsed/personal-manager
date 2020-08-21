@@ -4,25 +4,31 @@
 		<view class="page__title">比赛记录</view>
 		<view class="page__desc">牛逼哄哄</view>
     </view>
-    <view class="game_panel" wx:for="{{team}}">
+    <view class="game_panel" wx:for="{{gameList}}">
 		<view class="weui-panel weui-panel_access">
 			<view class="weui-panel__bd">
                 <!--<navigator url="../plan/plan" open-type="navigate" class="game_item" style="background-image: url(../images/a.jpg);background-size:cover;">-->
-                <navigator url="../plan/plan" open-type="navigate" class="game_item">
+                <navigator url="../gameDetail/gameDetail" open-type="navigate" class="game_item">
 				    <a class="weui-media-box weui-media-box_appmsg">
 				    	<view class="weui-media-box__bd">
 				    		<h4 class="weui-media-box__title">
                                 <view class="weui-flex">
-		                        	<view class="weui-flex__item"><view class="placeholder">凡尔赛三期</view></view>
+		                        	<view class="weui-flex__item"><view class="placeholder">{{item.home}}</view></view>
 		                        	<view class="placeholder"><view class="placeholder">vs</view></view>
-		                        	<view class="weui-flex__item"><view class="placeholder">凡尔赛二期</view></view>
+		                        	<view class="weui-flex__item"><view class="placeholder">{{item.guests}}</view></view>
 		                        </view>
                             </h4>
                             <view class="weui-media-box__score">
                                 <view class="weui-flex">
-		                        	<view class="weui-flex__item"><view class="placeholder">100</view></view>
+		                        	<view class="weui-flex__item"><view class="placeholder">{{item.home_score}}</view></view>
 		                        	<view class="placeholder"><view class="placeholder">:</view></view>
-		                        	<view class="weui-flex__item"><view class="placeholder">99</view></view>
+		                        	<view class="weui-flex__item"><view class="placeholder">{{item.guests_score}}</view></view>
+		                        </view>
+                            </view>
+                            <view class="weui-media-box_des">
+                                <view class="weui-flex">
+		                        	<view class="weui-flex__item des_left"><view class="placeholder">{{item.time}}</view></view>
+		                        	<view class="weui-flex__item des_right"><view class="placeholder">{{item.place}}</view></view>
 		                        </view>
                             </view>
 				    	</view>

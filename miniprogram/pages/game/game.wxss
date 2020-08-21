@@ -2,11 +2,25 @@
 .game_panel{
     padding-bottom: 20px;
 }
+.weui-media-box{
+    padding: 32rpx 32rpx 16rpx;
+}
 .weui-media-box__title{
     text-align: center;
 }
 .weui-media-box__score{
-    margin-top: 10px;
+    margin-top: 20rpx;
     text-align: center;
-    font-size: 30px;
+    font-size: 60rpx;
+}
+.weui-media-box_des{
+    font-size: 30rpx;
+    margin-top: 20rpx;
+    color:rgb(95, 94, 94);
+}
+.des_left{
+    text-align: left;
+}
+.des_right{
+    text-align: right;
 }
