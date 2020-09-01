@@ -1,10 +1,14 @@
 /* miniprogram/pages/gameDetail/gameDetail.wxss */
+.page{
+    background: #fff;
+}
 .game_scan{
     text-align: center;
+    background: var(--weui-BG-0);
 }
 .mvp_panel{
-    border-top: 1rpx solid #5f677a;
+    border-top: 1rpx solid #5f677a;    
 }
-.game_detail{
+.game_detail{    
     border-bottom: 1rpx solid #5f677a;
 }

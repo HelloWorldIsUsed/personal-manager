@@ -8,7 +8,7 @@
 		<view class="weui-panel weui-panel_access">
 			<view class="weui-panel__bd">
                 <!--<navigator url="../plan/plan" open-type="navigate" class="game_item" style="background-image: url(../images/a.jpg);background-size:cover;">-->
-                <navigator url="../gameDetail/gameDetail" open-type="navigate" class="game_item">
+                <navigator url="../gameDetail/gameDetail?id={{item._id}}" open-type="navigate" class="game_item">
 				    <a class="weui-media-box weui-media-box_appmsg">
 				    	<view class="weui-media-box__bd">
 				    		<h4 class="weui-media-box__title">

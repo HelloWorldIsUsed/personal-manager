@@ -7,23 +7,23 @@
     <view class="page__bd">
 		<view class="weui-panel weui-panel_access">
 			<view class="weui-panel__bd">
-                <navigator url="../plan/plan" open-type="navigate" class="uploader-text">
-                    <a class="weui-media-box weui-media-box_appmsg" wx:for="{{team}}">
+                <navigator open-type="navigate" class="uploader-text">
+                    <a class="weui-media-box weui-media-box_appmsg" wx:for="{{teamList}}">
 				    	<view class="weui-media-box__hd">
 				    		<image class="weui-media-box__thumb" src="./../images/people.png" alt></image>
 				    	</view>
 				    	<view class="weui-media-box__bd">
-				    		<h4 class="weui-media-box__title">姓名</h4>
+				    		<h4 class="weui-media-box__title">{{item.name}}</h4>
 				    		<view class="weui-media-box__desc">
                                 <view class="weui-flex">
-		                        	<view class="weui-flex__item"><view class="placeholder">身高：178cm</view></view>
-		                        	<view class="weui-flex__item"><view class="placeholder">体重：80kg</view></view>
+		                        	<view class="weui-flex__item"><view class="placeholder">身高：{{item.height}}cm</view></view>
+		                        	<view class="weui-flex__item"><view class="placeholder">体重：{{item.weight}}kg</view></view>
 		                        </view>
                             </view>
                             <view class="weui-media-box__desc">
                                 <view class="weui-flex">
-		                        	<view class="weui-flex__item"><view class="placeholder">号码：3</view></view>
-		                        	<view class="weui-flex__item"><view class="placeholder">位置：小前</view></view>
+		                        	<view class="weui-flex__item"><view class="placeholder">号码：{{item.num}}</view></view>
+		                        	<view class="weui-flex__item"><view class="placeholder">位置：{{item.position}}</view></view>
 		                        </view>
                             </view>
 				    	</view>

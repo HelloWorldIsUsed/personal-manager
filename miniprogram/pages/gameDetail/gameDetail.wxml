@@ -13,28 +13,28 @@
 		</view>
     </view>
     <view class="weui-panel__bd mvp_panel">
-        <navigator url="../plan/plan" open-type="navigate" class="uploader-text">
+        <!--<navigator url="../plan/plan" open-type="navigate" class="uploader-text">-->
             <a class="weui-media-box weui-media-box_appmsg">
 		    	<view class="weui-media-box__hd">
 		    		<image class="weui-media-box__thumb" src="./../images/people.png" alt></image>
 		    	</view>
 		    	<view class="weui-media-box__bd">
-		    		<h4 class="weui-media-box__title">姓名</h4>
+		    		<h4 class="weui-media-box__title">{{mvpPlayer.name}}</h4>
 		    		<view class="weui-media-box__desc">
                         <view class="weui-flex">
-	                    	<view class="weui-flex__item"><view class="placeholder">得分：178cm</view></view>
-	                    	<view class="weui-flex__item"><view class="placeholder">篮板：80kg</view></view>
+	                    	<view class="weui-flex__item"><view class="placeholder">得分：{{mvpPlayer.score}}</view></view>
+	                    	<view class="weui-flex__item"><view class="placeholder">篮板：{{mvpPlayer.rebound}}</view></view>
 	                    </view>
                     </view>
                     <view class="weui-media-box__desc">
                         <view class="weui-flex">
-	                    	<view class="weui-flex__item"><view class="placeholder">助攻：3</view></view>
-	                    	<view class="weui-flex__item"><view class="placeholder">失误：小前</view></view>
+	                    	<view class="weui-flex__item"><view class="placeholder">助攻：{{mvpPlayer.assist}}</view></view>
+	                    	<view class="weui-flex__item"><view class="placeholder">失误：{{mvpPlayer.mistakes}}</view></view>
 	                    </view>
                     </view>
 		    	</view>
 		    </a>
-        </navigator>				
+        <!--</navigator>-->				
 	</view>
     <view class="game_detail">
         <table tableThemes="{{themeArr}}" tableItems="{{itemArr}}"></table>
