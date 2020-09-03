@@ -2,9 +2,7 @@
 <view class="page" data-weui-theme="{{theme}}">
 	<view class="page__bd" style="height: 100%;">
         <view class="page__hd">
-	    	<view class="page__title">Panel</view>
-            <view class="page__desc">面板</view>
-            <text class="iconfont icon-group_fill"></text>
+	    	<view class="page__title">暂无内容</view>
         </view>
         <!--
 		<view class="weui-tab">

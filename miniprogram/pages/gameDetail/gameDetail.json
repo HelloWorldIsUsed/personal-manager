@@ -1,6 +1,6 @@
 {
     "usingComponents": {
-        "table": "./../../component/table/table"
+        "table": "./../component/table/table"
     },
     "navigationBarTitleText": "比赛记录"
 }
