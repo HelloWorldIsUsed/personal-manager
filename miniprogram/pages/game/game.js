@@ -12,6 +12,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        wx.showToast({
+            title: '加载中',
+            icon: 'loading',
+            mask: true
+        })
         var _this = this;
         wx.cloud.callFunction({
             // 云函数名称
@@ -24,6 +29,7 @@ Page({
                 _this.setData({
                     gameList: res.result,
                 });
+                wx.hideToast();
             },
             fail: console.error,
         });
