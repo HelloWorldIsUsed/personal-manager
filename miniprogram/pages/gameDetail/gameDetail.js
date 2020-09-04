@@ -12,22 +12,19 @@ Page({
             assist: "助攻",
             mistakes: "失误",
         },
-        itemArr: [
-            {
-                name: "Anna",
-                num: 25,
-                score: 121243423424,
-                rebound: "tianfuStreet",
-                assist: 1,
-                mistakes: 1,
-            }
-        ],
+        itemArr: [],
         mvpPlayer: {
             name: '',
             score: '',
             rebound: '',
             assist: '',
             mistakes: ''
+        },
+        game: {
+            home: '',
+            guests: '',
+            home_score: '',
+            guests_score: ''
         }
     },
 
@@ -37,6 +34,20 @@ Page({
     onLoad: function (options) {
         var _this = this;
         console.log(options);
+        wx.cloud.callFunction({
+            name: "queryGameById",
+            data: {
+                id: options.id,
+            },
+            success(res) {
+                if(res.result.length) {
+                    _this.setData({
+                        game: res.result[0]
+                    });
+                }
+                
+            }
+        })
         wx.cloud.callFunction({
             name: "queryGameDetail",
             data: {

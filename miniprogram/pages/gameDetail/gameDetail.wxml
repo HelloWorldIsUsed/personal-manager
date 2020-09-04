@@ -2,14 +2,14 @@
 <view class="page" data-weui-theme="{{theme}}">
 	<view class="page__hd game_scan">
 		<view class="weui-flex">
-			<view class="weui-flex__item"><view class="placeholder">凡尔赛三期</view></view>
+			<view class="weui-flex__item"><view class="placeholder">{{game.home}}</view></view>
 			<view class="placeholder"><view class="placeholder">vs</view></view>
-			<view class="weui-flex__item"><view class="placeholder">凡尔赛二期</view></view>
+			<view class="weui-flex__item"><view class="placeholder">{{game.guests}}</view></view>
 		</view>
         <view class="weui-flex">
-			<view class="weui-flex__item"><view class="placeholder">100</view></view>
+			<view class="weui-flex__item"><view class="placeholder">{{game.home_score}}</view></view>
 			<view class="placeholder"><view class="placeholder">:</view></view>
-			<view class="weui-flex__item"><view class="placeholder">99</view></view>
+			<view class="weui-flex__item"><view class="placeholder">{{game.guests_score}}</view></view>
 		</view>
     </view>
     <view class="weui-panel__bd mvp_panel">

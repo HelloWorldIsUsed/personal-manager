@@ -6,12 +6,10 @@ cloud.init()
 const db = cloud.database()
 
 // 云函数入口函数
-exports.main = async (event, context) => {
-    debugger;
-  const {OPENID, APPID} = cloud.getWXContext()
-  return db.collection('game')
-    .orderBy('time', 'asc')
-    .get().then(res => {
+exports.main = async (e, context) => {
+  return db.collection('game').where({
+    _id: e.id
+  }).get().then(res => {
     // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
     console.log(res.data)
     return res.data;
