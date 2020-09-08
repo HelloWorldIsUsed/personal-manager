@@ -1,8 +1,7 @@
 <!--miniprogram/pages/game/game.wxml-->
 <view class="page" data-weui-theme="{{theme}}">
-	<view class="page__hd">
-		<view class="page__title">比赛记录</view>
-		<view class="page__desc">牛逼哄哄</view>
+	<view class="game_top">
+        <image mode="aspectFill" style="width:100%;" src="https://s1.ax1x.com/2020/09/08/wMvlp4.png"></image>
     </view>
     <view class="game_panel" wx:for="{{gameList}}">
 		<view class="weui-panel weui-panel_access">

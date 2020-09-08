@@ -1,22 +1,46 @@
 /* miniprogram/pages/game/game.wxss */
+.page{
+    background: url('https://s1.ax1x.com/2020/09/08/wQwaOf.jpg');
+}
+.game_top{
+    height: 300rpx;
+}
 .game_panel{
-    padding-bottom: 20px;
+    padding-bottom: 40rpx;
+}
+.weui-panel{    
+    background-color: rgba(0,0,0,0.3);    
+    z-index: 1;
+    color: #fff !important;
+}
+.weui-panell:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(104, 102, 102, 0.5);
+    filter: blur(2px);    
+    z-index: -1;
 }
 .weui-media-box{
     padding: 32rpx 32rpx 16rpx;
 }
 .weui-media-box__title{
     text-align: center;
+    color: rgb(161, 159, 159);
 }
 .weui-media-box__score{
     margin-top: 20rpx;
     text-align: center;
     font-size: 60rpx;
+    color: rgb(252, 248, 248);
 }
 .weui-media-box_des{
     font-size: 30rpx;
     margin-top: 20rpx;
-    color:rgb(95, 94, 94);
+    color: rgb(161, 159, 159);
 }
 .des_left{
     text-align: left;
