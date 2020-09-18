@@ -5,6 +5,12 @@
 .game_top{
     height: 300rpx;
 }
+.add-game-btn{
+    position: absolute;
+    top: 30rpx;
+    right: 30rpx;
+    font-size: 80rpx;
+}
 .game_panel{
     padding-bottom: 40rpx;
 }

@@ -4,7 +4,8 @@
 }
 .game_scan{
     text-align: center;
-    background: var(--weui-BG-0);
+    background: url('https://s1.ax1x.com/2020/09/08/wQwaOf.jpg');
+    color: #fff;
 }
 .mvp_panel{
     border-top: 1rpx solid #5f677a;    

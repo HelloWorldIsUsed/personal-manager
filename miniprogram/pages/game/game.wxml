@@ -2,6 +2,7 @@
 <view class="page" data-weui-theme="{{theme}}">
 	<view class="game_top">
         <image mode="aspectFill" style="width:100%;" src="https://s1.ax1x.com/2020/09/08/wMvlp4.png"></image>
+		<text class="iconfont icon-add add-game-btn" bindtap="onAdd"></text>
     </view>
     <view class="game_panel" wx:for="{{gameList}}">
 		<view class="weui-panel weui-panel_access">
