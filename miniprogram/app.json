@@ -6,8 +6,9 @@
     "pages/detail/detail",
     "pages/picCollect/picCollect",
     "pages/addPic/addPic",
-    "pages/team/team",    
-    "pages/gameDetail/gameDetail"
+    "pages/team/team",
+    "pages/gameDetail/gameDetail",
+    "pages/addGameDetail/addGameDetail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

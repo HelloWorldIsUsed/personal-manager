@@ -6,6 +6,13 @@
     text-align: center;
     background: url('https://s1.ax1x.com/2020/09/08/wQwaOf.jpg');
     color: #fff;
+    position: relative;
+}
+.add-game-btn{
+    position: absolute;
+    top: 30%;
+    right: 30rpx;
+    font-size: 80rpx;
 }
 .mvp_panel{
     border-top: 1rpx solid #5f677a;    

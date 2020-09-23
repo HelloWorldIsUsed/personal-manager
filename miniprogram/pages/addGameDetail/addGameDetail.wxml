@@ -1,0 +1,24 @@
+<!--miniprogram/pages/team/team.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_radio weui-cells_after-title">
+            <radio-group bindchange="radioChange">
+                <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
+                    <view class="weui-cell__bd">{{item.name}}</view>
+
+                    <view class="weui-cell__ft">
+                        <radio
+                            class="weui-check"
+                            value="{{item.value}}"
+                            checked="{{item.checked}}"
+                        />
+                        <i class="weui-icon-checked"></i>
+                    </view>
+                </label>
+            </radio-group>
+            <view class="weui-cell weui-cell_link">
+                <view class="weui-cell__bd">添加更多</view>
+            </view>
+        </view>
+    </view>
+</view>

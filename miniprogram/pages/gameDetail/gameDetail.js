@@ -4,6 +4,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        isManage: false,
         themeArr: {
             name: "姓名",
             num: "号码",
@@ -28,17 +29,36 @@ Page({
         }
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
     onLoad: function (options) {
+        wx.getSetting({
+            success: (res) => {
+                if (res.authSetting["scope.userInfo"]) {
+                    // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+                    wx.getUserInfo({
+                        success: (res) => {
+                            if(res.signature == "340f3235fea08b3aba8daa32b104989443ca7bd7" && res.userInfo.nickName == "卖画的小报家"){
+                                this.setData({
+                                    isManage: true
+                                })
+                            }
+                        },
+                    });
+                }
+            },
+        });
+    },
+
+    onShow: function () {
         wx.showToast({
             title: '加载中',
             icon: 'loading',
             mask: true
         })
         var _this = this;
-        console.log(options);
+        let pages = getCurrentPages();        
+        let currentPage = pages[pages.length - 1];        
+        const options = currentPage.options;
+
         wx.cloud.callFunction({
             name: "queryGameById",
             data: {
@@ -87,30 +107,11 @@ Page({
             },
         });
     },
-    onReady: function () {},
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {},
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {},
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {},
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {},
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {},
+    onAdd: function () {
+        wx.navigateTo({
+          url: '../addGameDetail/addGameDetail',
+        })
+    },
 });

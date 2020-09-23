@@ -13,11 +13,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        wx.showToast({
-            title: "加载中",
-            icon: "loading",
-            mask: true,
-        });
         wx.getSetting({
             success: (res) => {
                 if (res.authSetting["scope.userInfo"]) {
@@ -35,22 +30,7 @@ Page({
             },
         });
 
-        var _this = this;
-        wx.cloud.callFunction({
-            // 云函数名称
-            name: "queryGameList",
-            success(res) {
-                console.log(res);
-                res.result.map((item) => {
-                    item.time = time.formatTimeTwo(new Date(item.time), "Y-M-D h:m:s");
-                });
-                _this.setData({
-                    gameList: res.result,
-                });
-                wx.hideToast();
-            },
-            fail: console.error,
-        });
+        
     },
 
     onAdd: function () {
@@ -67,7 +47,29 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () { },
+    onShow: function () { 
+        var _this = this;
+        wx.showToast({
+            title: "加载中",
+            icon: "loading",
+            mask: true,
+        });
+        wx.cloud.callFunction({
+            // 云函数名称
+            name: "queryGameList",
+            success(res) {
+                console.log(res);
+                res.result.map((item) => {
+                    item.time = time.formatTimeTwo(new Date(item.time), "Y-M-D h:m:s");
+                });
+                _this.setData({
+                    gameList: res.result,
+                });
+                wx.hideToast();
+            },
+            fail: console.error,
+        });
+    },
 
     /**
      * 生命周期函数--监听页面隐藏
