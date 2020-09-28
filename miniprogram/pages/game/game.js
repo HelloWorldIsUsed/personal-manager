@@ -19,7 +19,7 @@ Page({
                     // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
                     wx.getUserInfo({
                         success: (res) => {
-                            if(res.signature == "340f3235fea08b3aba8daa32b104989443ca7bd7" && res.userInfo.nickName == "卖画的小报家"){
+                            if(res.userInfo.nickName == "卖画的小报家"){
                                 this.setData({
                                     isManage: true
                                 })

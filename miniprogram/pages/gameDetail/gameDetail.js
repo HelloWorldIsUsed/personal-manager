@@ -6,12 +6,12 @@ Page({
     data: {
         isManage: false,
         themeArr: {
-            name: "姓名",
-            num: "号码",
+            name: "姓名",            
             score: "得分",
             rebound: "篮板",
             assist: "助攻",
             mistakes: "失误",
+            num: "号码",
         },
         itemArr: [],
         mvpPlayer: {
@@ -36,7 +36,7 @@ Page({
                     // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
                     wx.getUserInfo({
                         success: (res) => {
-                            if(res.signature == "340f3235fea08b3aba8daa32b104989443ca7bd7" && res.userInfo.nickName == "卖画的小报家"){
+                            if(res.userInfo.nickName == "卖画的小报家"){
                                 this.setData({
                                     isManage: true
                                 })
@@ -84,12 +84,12 @@ Page({
                     let tempArr = [];
                     res.result.map(item => {
                         let tempArrObj = {};
-                        tempArrObj.name = item.name;
-                        tempArrObj.num = item.num;
+                        tempArrObj.name = item.name;                        
                         tempArrObj.score = item.score;
                         tempArrObj.rebound = item.rebound;
                         tempArrObj.assist = item.assist;
-                        tempArrObj.mistakes = item.mistakes;                        
+                        tempArrObj.mistakes = item.mistakes; 
+                        tempArrObj.num = item.num;                       
                         if(item.isMvp) {
                             _this.setData({
                                 mvpPlayer: item,
@@ -110,8 +110,11 @@ Page({
 
 
     onAdd: function () {
+        let pages = getCurrentPages();        
+        let currentPage = pages[pages.length - 1];        
+        const options = currentPage.options;
         wx.navigateTo({
-          url: '../addGameDetail/addGameDetail',
+          url: '../addGameDetail/addGameDetail?gameId=' + options.id,
         })
     },
 });

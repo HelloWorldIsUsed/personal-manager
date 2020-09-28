@@ -1,1 +1,4 @@
 /* miniprogram/pages/addGameDetail/addGameDetail.wxss */
+.weui-cells{
+    margin-top: 0px;
+}
