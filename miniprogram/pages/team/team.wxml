@@ -10,7 +10,7 @@
                 <navigator open-type="navigate" class="uploader-text">
                     <a class="weui-media-box weui-media-box_appmsg" wx:for="{{teamList}}">
 				    	<view class="weui-media-box__hd">
-				    		<image class="weui-media-box__thumb" src="./../images/people.png" alt></image>
+				    		<image class="weui-media-box__thumb" mode="aspectFill" src="{{item.url || './../images/people.png'}}" alt></image>
 				    	</view>
 				    	<view class="weui-media-box__bd">
 				    		<h4 class="weui-media-box__title">{{item.name}}</h4>
